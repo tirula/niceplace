@@ -11,10 +11,7 @@
 </head>
 <body>
 <br>
-	<jsp:include page="../menu.jsp" />
-	<div class="container">
-		Ola
-	</div>
+<jsp:include page="../menu.jsp" />
 
 
 </body>
