@@ -1,5 +1,7 @@
 package br.vibbra.basic.repository;
 
+import org.springframework.data.repository.CrudRepository;
+
 import br.vibbra.basic.entity.User;
 
 /**
@@ -8,7 +10,6 @@ import br.vibbra.basic.entity.User;
  *
  * 
  */
-
 public interface UserRepository extends CrudRepository<User, Long> {
 
 }

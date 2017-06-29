@@ -6,3 +6,7 @@ CREATE TABLE USER (
 	PASSWORD VARCHAR(20) NULL,
 	PRIMARY KEY (`USER_ID`)
 	);
+	
+GRANT ALL PRIVILEGES ON niceplace.user TO 'root'@'%' WITH GRANT OPTION;
+
+insert into USER (USER_ID,NICKNAME, NAME, EMAIL, PASSWORD ) values (100, 'tirula', 'brunno', 'balmeida.santos','1234');

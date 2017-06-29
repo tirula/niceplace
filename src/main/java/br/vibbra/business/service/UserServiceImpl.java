@@ -2,9 +2,9 @@ package br.vibbra.business.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import br.vibbra.basic.entity.User;
-import br.vibbra.basic.repository.CrudRepository;
+import br.vibbra.business.model.UserModel;
 
 /**
  * 
@@ -16,12 +16,12 @@ import br.vibbra.basic.repository.CrudRepository;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private CrudRepository<User, Long> userRepository;
+	private UserModel userModel;
 
 	@Override
+	@Transactional
 	public void retrieveAll() {
-		userRepository.findAll();
-		// userModel.retrieveAll();
+		userModel.retrieveAll();
 	}
 
 }

@@ -2,10 +2,11 @@ package br.vibbra.business.model;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import br.vibbra.basic.UserDao;
 import br.vibbra.basic.entity.User;
-import br.vibbra.basic.repository.CrudRepository;
 
 /**
  * 
@@ -15,13 +16,14 @@ import br.vibbra.basic.repository.CrudRepository;
 @Component
 public class UserBusiness implements UserModel {
 
-	private CrudRepository<User, Long> userRepository;
+	@Autowired
+	private UserDao userDao;
 
 	private List<User> users;
 
 	@Override
 	public UserModel retrieveAll() {
-		userRepository.findAll();
+		this.users = userDao.findAll();
 		return this;
 	}
 
