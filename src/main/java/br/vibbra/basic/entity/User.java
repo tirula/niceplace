@@ -1,36 +1,54 @@
-package entity;
+package br.vibbra.basic.entity;
 
+import java.io.Serializable;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class User.
  *
  * @author Brunno de Almeida Santos
  */
 @Entity
-public class User {
+public class User implements Serializable {
+
+	/**
+	 * 
+	 */
+	@Transient
+	private static final long serialVersionUID = 3764497095919662184L;
 
 	/** The id. */
-	private int id;
+	@Id
+	@Column(name = "USER_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
 	/** The nickname. */
+	@Column(name = "NICKNAME")
 	private String nickname;
 
 	/** The name. */
+	@Column(name = "NAME")
 	private String name;
 
 	/** The email. */
+	@Column(name = "EMAIL")
 	private String email;
 
 	/** The password. */
+	@Column(name = "PASSWORD")
 	private String password;
 
 	/**
 	 * Instantiates a new user.
 	 */
 	public User() {
-		// TODO Auto-generated constructor stub
 	}
 
 	/**
@@ -38,7 +56,7 @@ public class User {
 	 *
 	 * @return the id
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -48,7 +66,7 @@ public class User {
 	 * @param id
 	 *            the new id
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -128,28 +146,18 @@ public class User {
 		this.password = password;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
-		result = prime * result + id;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((nickname == null) ? 0 : nickname.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -164,7 +172,10 @@ public class User {
 				return false;
 		} else if (!email.equals(other.email))
 			return false;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		if (name == null) {
 			if (other.name != null)
@@ -184,11 +195,6 @@ public class User {
 		return true;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", nickname=" + nickname + ", name=" + name + ", email=" + email + ", password=" + password + "]";

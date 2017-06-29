@@ -1,4 +1,4 @@
-package br.vibbra.repository;
+package br.vibbra.basic.repository;
 
 import java.io.Serializable;
 

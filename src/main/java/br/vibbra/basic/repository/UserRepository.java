@@ -1,8 +1,6 @@
-package br.vibbra.repository;
+package br.vibbra.basic.repository;
 
-import org.springframework.stereotype.Repository;
-
-import entity.User;
+import br.vibbra.basic.entity.User;
 
 /**
  * 
@@ -10,7 +8,7 @@ import entity.User;
  *
  * 
  */
-@Repository
+
 public interface UserRepository extends CrudRepository<User, Long> {
 
 }

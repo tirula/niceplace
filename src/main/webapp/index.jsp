@@ -56,7 +56,7 @@ body {
 
 </style>
 	<div class="container">
-		<form class="form-signin" id="formLogin" name="formLogin" action=${pageContext.request.contextPath}/login method="post">
+		<form class="form-signin" id="formLogin" name="formLogin" action="login" method="post">
 			<h2 class="form-signin-heading">Please sign in</h2>
 			<label for="inputEmail" class="sr-only">Email address</label> 
 			<input type="email" id="inputEmail" name="user.login" class="form-control" placeholder="Email" required autofocus> 
