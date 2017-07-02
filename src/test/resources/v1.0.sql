@@ -1,6 +1,5 @@
 CREATE TABLE USER (
 	USER_ID INT NOT NULL,
-	NICKNAME VARCHAR(45) NULL,
 	EMAIL VARCHAR(100) NULL,
 	NAME VARCHAR(50) NULL,
 	PASSWORD VARCHAR(20) NULL,
@@ -9,4 +8,4 @@ CREATE TABLE USER (
 	
 GRANT ALL PRIVILEGES ON niceplace.user TO 'root'@'%' WITH GRANT OPTION;
 
-insert into USER (USER_ID,NICKNAME, NAME, EMAIL, PASSWORD ) values (100, 'tirula', 'brunno', 'balmeida.santos','1234');
+insert into USER (USER_ID, NAME, EMAIL, PASSWORD ) values (100, 'Brunno de Almeida Santos', 'balmeida.santos@hotmail.com  a ','1234');

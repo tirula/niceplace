@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.vibbra.business.exception.SignInException;
 import br.vibbra.business.model.UserModel;
 
 /**
@@ -24,4 +25,24 @@ public class UserServiceImpl implements UserService {
 		userModel.retrieveAll();
 	}
 
+	@Override
+	@Transactional
+	public void save() {
+		userModel.save();
+	}
+
+	@Override
+	public void login() throws SignInException {
+		userModel.login();
+	}
+
+	@Override
+	public UserModel getUserModel() {
+		return userModel;
+	}
+
+	@Override
+	public void setUserModel(UserModel userModel) {
+		this.userModel = userModel;
+	}
 }

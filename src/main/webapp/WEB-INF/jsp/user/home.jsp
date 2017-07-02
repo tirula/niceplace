@@ -3,19 +3,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
-<head>
-    <title>Usuario</title>
-  	<link rel="stylesheet" href="css/bootstrap.css">
- 	<script src="js/jquery-3.2.1.js"></script>
-   	<script src="js/bootstrap.js"></script>
-</head>
+	<jsp:include page="../import.jsp" />
 <body>
-<br>
-	<jsp:include page="../menu.jsp" />
-	<div class="container">
-		Ola
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div>
+	<div class="main">
+		<div class="container">
+			<br>
+			<jsp:include page="form.jsp" />
+			<br>
+			<jsp:include page="list.jsp" />
+		</div>
 	</div>
-
-
 </body>
 </html>

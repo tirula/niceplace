@@ -2,28 +2,29 @@ package br.vibbra.basic;
 
 import java.util.List;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Component;
 
 import br.vibbra.basic.entity.User;
 
 @Component
-public class UserDao {
-
-	@Autowired
-	private SessionFactory sessionFactory;
+public class UserDao extends AbstractDao<User> {
 
 	@SuppressWarnings("unchecked")
 	public List<User> findAll() {
-		return getSessionFactory().getCurrentSession().createQuery(" From User ").list();
+		return sessionFactory.getCurrentSession().createQuery(" From User ").list();
 	}
 
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
+	@Override
+	public Class<?> getTypeClass() {
+		return User.class;
 	}
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	public boolean login(String email, String password) {
+		Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(getTypeClass());
+		criteria.add(Restrictions.eq("email", email));
+		criteria.add(Restrictions.eq("password", password));
+		return false;
 	}
 }

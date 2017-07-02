@@ -12,21 +12,31 @@ public class UserRequest implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4740961941601970896L;
+	private static final long serialVersionUID = -5816366688151150839L;
 
-	private String login;
+	private String name;
+
+	private String email;
 
 	private String password;
 
 	public UserRequest() {
 	}
 
-	public String getLogin() {
-		return login;
+	public String getName() {
+		return name;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getPassword() {
@@ -39,6 +49,6 @@ public class UserRequest implements Serializable {
 
 	@Override
 	public String toString() {
-		return "UserRequest [login=" + login + ", password=*********]";
+		return "UserRequest [name=" + name + ", email=" + email + ", password=" + password + "]";
 	}
 }

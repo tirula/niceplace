@@ -1,13 +1,11 @@
 package br.vibbra.basic.entity;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.Table;
 
 /**
  * The Class User.
@@ -15,23 +13,14 @@ import javax.persistence.Transient;
  * @author Brunno de Almeida Santos
  */
 @Entity
-public class User implements Serializable {
-
-	/**
-	 * 
-	 */
-	@Transient
-	private static final long serialVersionUID = 3764497095919662184L;
+@Table(name = "USER")
+public class User {
 
 	/** The id. */
 	@Id
 	@Column(name = "USER_ID")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-
-	/** The nickname. */
-	@Column(name = "NICKNAME")
-	private String nickname;
 
 	/** The name. */
 	@Column(name = "NAME")
@@ -68,25 +57,6 @@ public class User implements Serializable {
 	 */
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	/**
-	 * Gets the nickname.
-	 *
-	 * @return the nickname
-	 */
-	public String getNickname() {
-		return nickname;
-	}
-
-	/**
-	 * Sets the nickname.
-	 *
-	 * @param nickname
-	 *            the new nickname
-	 */
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
 	}
 
 	/**
@@ -153,7 +123,6 @@ public class User implements Serializable {
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((nickname == null) ? 0 : nickname.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
 		return result;
 	}
@@ -182,11 +151,6 @@ public class User implements Serializable {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (nickname == null) {
-			if (other.nickname != null)
-				return false;
-		} else if (!nickname.equals(other.nickname))
-			return false;
 		if (password == null) {
 			if (other.password != null)
 				return false;
@@ -197,7 +161,7 @@ public class User implements Serializable {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", nickname=" + nickname + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
 	}
 
 }
