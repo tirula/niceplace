@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import br.vibbra.business.exception.SignInException;
 import br.vibbra.business.model.UserModel;
 import br.vibbra.business.service.UserService;
 import br.vibbra.web.mapper.Mapper;
@@ -29,20 +28,6 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-
-	@RequestMapping("/login")
-	public String login(UserRequest user) {
-		logger.info("Login para o usuario: " + user.getEmail());
-		userMapper.map(user);
-		userService.setUserModel(userMapper.getModel());
-		try {
-			userService.login();
-		} catch (SignInException e) {
-			logger.info("Nao foi possivel efetuar o login.");
-			return "login";
-		}
-		return "home";
-	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public ModelAndView user(UserRequest userRequest) {

@@ -1,10 +1,16 @@
 package br.vibbra.basic.entity;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -33,6 +39,9 @@ public class User {
 	/** The password. */
 	@Column(name = "PASSWORD")
 	private String password;
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.user", cascade = CascadeType.ALL)
+	private Set<UserPlace> userPlaces = new HashSet<>(0);
 
 	/**
 	 * Instantiates a new user.
@@ -116,6 +125,14 @@ public class User {
 		this.password = password;
 	}
 
+	public Set<UserPlace> getUserPlaces() {
+		return userPlaces;
+	}
+
+	public void setUserPlaces(Set<UserPlace> userPlaces) {
+		this.userPlaces = userPlaces;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -124,6 +141,7 @@ public class User {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((userPlaces == null) ? 0 : userPlaces.hashCode());
 		return result;
 	}
 
@@ -156,12 +174,17 @@ public class User {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (userPlaces == null) {
+			if (other.userPlaces != null)
+				return false;
+		} else if (!userPlaces.equals(other.userPlaces))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", userPlaces=" + userPlaces + "]";
 	}
 
 }
