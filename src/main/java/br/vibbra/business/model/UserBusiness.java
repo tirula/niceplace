@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import br.vibbra.basic.UserDao;
+import br.vibbra.basic.dao.UserDao;
 import br.vibbra.basic.entity.User;
 import br.vibbra.business.exception.SignInException;
 
@@ -24,9 +24,7 @@ public class UserBusiness implements UserModel {
 
 	private Long id;
 
-	private String name;
-
-	private String email;
+	private String username;
 
 	private String password;
 
@@ -39,9 +37,9 @@ public class UserBusiness implements UserModel {
 	@Override
 	public UserModel save() {
 		User user = new User();
-		user.setEmail(getEmail());
-		user.setName(getName());
+		user.setUsername(geUsername());
 		user.setPassword(getPassword());
+		user.setEnabled(true);
 		userDao.save(user);
 		return this;
 	}
@@ -55,7 +53,7 @@ public class UserBusiness implements UserModel {
 
 	@Override
 	public UserModel login() throws SignInException {
-		if (!userDao.login(getEmail(), getPassword())) {
+		if (!userDao.login(geUsername(), getPassword())) {
 			throw new SignInException("Nao foi possivel logar no sistema.");
 		}
 		return this;
@@ -70,22 +68,13 @@ public class UserBusiness implements UserModel {
 		this.users = users;
 	}
 
-	public String getName() {
-		return name;
+	public String geUsername() {
+		return username;
 	}
 
 	@Override
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	@Override
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {

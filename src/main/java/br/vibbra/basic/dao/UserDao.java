@@ -1,6 +1,4 @@
-package br.vibbra.basic;
-
-import java.util.List;
+package br.vibbra.basic.dao;
 
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
@@ -10,11 +8,6 @@ import br.vibbra.basic.entity.User;
 
 @Component
 public class UserDao extends AbstractDao<User> {
-
-	@SuppressWarnings("unchecked")
-	public List<User> findAll() {
-		return sessionFactory.getCurrentSession().createQuery(" From User ").list();
-	}
 
 	@Override
 	public Class<?> getTypeClass() {

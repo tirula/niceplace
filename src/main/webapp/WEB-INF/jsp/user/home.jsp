@@ -5,19 +5,11 @@
 <html>
 	<jsp:include page="../import.jsp" />
 <body>
-<div class="navbar">
-  <a href="#home">Home</a>
-  <a href="#news">News</a>
-  <a href="#contact">Contact</a>
-  <a href="#about">About</a>
-</div>
-	<div class="main">
-		<div class="container">
-			<br>
-			<jsp:include page="form.jsp" />
-			<br>
-			<jsp:include page="list.jsp" />
-		</div>
+	<div class="container">
+		<br>
+		<jsp:include page="form.jsp" />
+		<br>
+		<jsp:include page="list.jsp" />
 	</div>
 </body>
 </html>

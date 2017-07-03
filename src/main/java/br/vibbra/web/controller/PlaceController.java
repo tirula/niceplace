@@ -2,7 +2,10 @@ package br.vibbra.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import br.vibbra.web.request.UserRequest;
 
 /**
  * @author Brunno de Almeida Santos
@@ -10,10 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class PlaceController {
 
-    @RequestMapping("/hello")
-    public ModelAndView hello() {
-        String message = "<br><div style='text-align:center;'>" + "<h3>********** Hello World, Spring MVC Tutorial</h3>This message is coming from CrunchifyHelloWorld.java **********</div><br><br>";
-        return new ModelAndView("welcome", "message", message);
-    }
+	@RequestMapping(value = "/places", method = RequestMethod.POST)
+	public ModelAndView user(UserRequest userRequest) {
+		return null;
+	}
 
 }

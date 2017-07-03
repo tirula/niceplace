@@ -4,8 +4,7 @@
 	<table class="table table-striped">
 		<thead>
 		    <tr>
-				<th>Name</th>
-				<th>Email</th>
+				<th>username</th>
 				<th>Acoes</th>
 		    </tr>
 	  </thead>
@@ -13,9 +12,8 @@
 	 <tbody>
 	 	<c:forEach var="user" items="${users}">	  		
 		<tr>
-			<td>${user.name}</td>
-			<td>${user.email}</td>
-			<td><!-- a href="user/remove/${user.id}">X</a-->X</td>
+			<td>${user.username}</td>
+			<td>X</td>
 		</tr>
 		</c:forEach>
 	   </tbody>

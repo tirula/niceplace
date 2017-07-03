@@ -22,9 +22,7 @@ public interface UserModel {
 
 	void setPassword(String password);
 
-	void setEmail(String email);
-
-	void setName(String name);
+	void setUsername(String username);
 
 	UserModel login() throws SignInException;
 

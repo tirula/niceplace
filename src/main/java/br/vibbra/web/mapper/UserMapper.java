@@ -20,8 +20,7 @@ public class UserMapper implements Mapper<UserModel, UserRequest> {
 
 	@Override
 	public UserModel map(UserRequest request) {
-		model.setName(request.getName());
-		model.setEmail(request.getEmail());
+		model.setUsername(request.getUsername());
 		model.setPassword(request.getPassword());
 		return model;
 	}

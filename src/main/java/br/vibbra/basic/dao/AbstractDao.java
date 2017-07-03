@@ -1,9 +1,12 @@
-package br.vibbra.basic;
+package br.vibbra.basic.dao;
+
+import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
@@ -28,6 +31,12 @@ public abstract class AbstractDao<T> {
 	@SuppressWarnings("unchecked")
 	public T update(T entity) {
 		return (T) this.sessionFactory.getCurrentSession().merge(entity);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<T> findAll() {
+		return sessionFactory.getCurrentSession().createCriteria(getTypeClass()).list();
 	}
 
 	@SuppressWarnings("unchecked")

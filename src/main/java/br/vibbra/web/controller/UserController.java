@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.vibbra.basic.dao.PlaceDao;
 import br.vibbra.business.model.UserModel;
 import br.vibbra.business.service.UserService;
 import br.vibbra.web.mapper.Mapper;
@@ -29,6 +30,9 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private PlaceDao placeDao;
+
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public ModelAndView user(UserRequest userRequest) {
 		userMapper.map(userRequest);
@@ -42,6 +46,7 @@ public class UserController {
 
 	@RequestMapping(value = "/user", method = RequestMethod.GET)
 	public ModelAndView user() {
+		placeDao.findAll();
 		ModelAndView model = new ModelAndView("user/home");
 		userService.retrieveAll();
 		model.addObject("users", userService.getUserModel().getUsers());
