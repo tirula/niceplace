@@ -31,6 +31,12 @@ public class PlaceBusiness implements PlaceModel {
 	}
 
 	@Override
+	public PlaceModel retrieveAll() {
+		places = placeDao.findAll();
+		return this;
+	}
+
+	@Override
 	public List<Place> getPlaces() {
 		return places;
 	}

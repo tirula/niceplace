@@ -17,4 +17,6 @@ public interface PlaceModel {
 	void setName(String name);
 
 	List<Place> getPlaces();
+
+	PlaceModel retrieveAll();
 }

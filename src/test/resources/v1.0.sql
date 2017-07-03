@@ -20,31 +20,32 @@ INSERT INTO user_roles (username, role) VALUES ('brunno', 'ROLE_USER');
 INSERT INTO user_roles (username, role) VALUES ('brunno', 'ROLE_ADMIN');
 INSERT INTO user_roles (username, role) VALUES ('alex', 'ROLE_USER');
 
-
-CREATE TABLE PLACE(
-	PLACE_ID INT NOT NULL,
-	NAME VARCHAR(50) NULL,
-	PHONE VARCHAR(20) NULL,
-	TYPE VARCHAR(30),
-	PRIMARY KEY (PLACE_ID)
+CREATE TABLE place (
+	place_id INT NOT NULL,
+	name VARCHAR(50) NULL,
+	phone VARCHAR(20) NULL,
+	type_place VARCHAR(30),
+	address varchar(200) null,
+	city varchar(50) null,
+	country varchar(30) null,
+	PRIMARY KEY (place_id)
 );
 
-GRANT ALL PRIVILEGES ON niceplace.PLACE TO 'root'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON niceplace.place TO 'root'@'%' WITH GRANT OPTION;
 
-INSERT INTO PLACE (PLACE_ID, NAME, PHONE, TYPE) VALUES (200, 'LIVRARIA', '48-3333-3333','LIBRARY');
-INSERT INTO PLACE (PLACE_ID, NAME, PHONE, TYPE) VALUES (201, 'CAFE', '48-4444-4444','COFFEE');
-INSERT INTO PLACE (PLACE_ID, NAME, PHONE, TYPE) VALUES (202, 'MCDONALDS', '48-5555-5555','RESTAURANT');
+INSERT INTO place (place_id, name, phone, type_place, address, city, country) VALUES (200, 'LIVRARIA', '48-3333-3333','LIBRARY','Av. Rendeiras', 'Florianopolis', 'Brazil' );
+INSERT INTO place (place_id, name, phone, type_place, address, city, country) VALUES (201, 'CAFE', '48-4444-4444','COFFEE', 'Av. Madre Benvenuta','Florianopolis','Brazil');
+INSERT INTO place (place_id, name, phone, type_place, address, city, country) VALUES (202, 'MCDONALDS', '48-5555-5555','RESTAURANT','Av.Beira marc','Florianopolis','Brazil');
 
 
-CREATE TABLE USER_PLACE (
-  	username VARCHAR(45) NOT NULL,
-  	PLACE_ID INT(10) UNSIGNED NOT NULL,
-  	SCORE INT NOT NULL,
-  	RATED_DATE DATE NOT NULL,
- 	PRIMARY KEY (username, PLACE_ID)
+CREATE TABLE user_place (
+  username VARCHAR(45) NOT NULL ,
+  place_id INT(10) UNSIGNED NOT NULL,
+  created_date DATE NOT NULL,	
+  score INT not null,
+  PRIMARY KEY (username,place_id)
 );
 
-GRANT ALL PRIVILEGES ON niceplace.USER_PLACE TO 'root'@'%' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON niceplace.user_place TO 'root'@'%' WITH GRANT OPTION;
 
-INSERT INTO USER_PLACE (username, PLACE_ID, SCORE, RATED_DATE) VALUES ("brunno",200,5, NOW());
-
+insert into user_place(username, place_id, created_date, score) values('brunno',200, now(),5);

@@ -1,5 +1,6 @@
 package br.vibbra.web.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,15 +16,42 @@ import br.vibbra.web.request.PlaceRequest;
 @Controller
 public class PlaceController {
 
+	private static Logger logger = Logger.getLogger(PlaceController.class);
+
 	@Autowired
 	private PlaceService placeService;
 
-	@RequestMapping(value = "/searchPlace", method = RequestMethod.POST)
-	public ModelAndView user(PlaceRequest placeRequest) {
+	@RequestMapping(value = "/searchPlace", method = RequestMethod.GET)
+	public ModelAndView searchPlace(PlaceRequest placeRequest) {
+		logger.info("Rquisicao " + placeRequest);
 		placeService.getPlaceModel().setName(placeRequest.getName());
-		ModelAndView model = new ModelAndView("place/home");
+		placeService.findByname();
+		ModelAndView model = new ModelAndView("hello");
 		model.addObject("places", placeService.getPlaceModel().getPlaces());
 		return model;
 	}
 
+	@RequestMapping(value = "/places", method = RequestMethod.GET)
+	public ModelAndView places() {
+		ModelAndView model = new ModelAndView("place/home");
+		placeService.retrieveAll();
+		model.addObject("places", placeService.getPlaceModel().getPlaces());
+		return model;
+	}
+
+	@RequestMapping(value = "/place/novo", method = RequestMethod.POST)
+	public ModelAndView novo(PlaceRequest placeRequest) {
+		// mapper
+		// salvar
+		ModelAndView model = new ModelAndView("place/home");
+		placeService.retrieveAll();
+		model.addObject("places", placeService.getPlaceModel().getPlaces());
+		return model;
+	}
+
+	@RequestMapping(value = "/place/novo", method = RequestMethod.GET)
+	public ModelAndView novo() {
+		ModelAndView model = new ModelAndView("place/novo");
+		return model;
+	}
 }

@@ -7,30 +7,25 @@
 	<script src="js/niceplace.js"></script>
 	
 <style>
-body {margin:0;}
+#header {
+      height: 200px;
+      position: relative;
+      z-index: 0;
+    }
 
-.navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed;
-  top: 0;
-  width: 100%;
+#content {
+  border: 1px solid #000;
+  margin-top: -100px;
+  position: relative;
+  z-index: 1;
 }
 
-.navbar a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.main {
-  padding: 16px;
-  margin-top: 30px;
-  height: 1500px; /* Used in this example to enable scrolling */
+#footer {
+  margin-top: -100px;
+  height: 400px;
+  position: relative;
+  z-index: 0;
 }
 </style>
 </head>
+<jsp:include page="logado.jsp" />

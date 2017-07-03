@@ -1,6 +1,8 @@
 package br.vibbra.business.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.vibbra.business.model.PlaceModel;
 
@@ -13,9 +15,11 @@ import br.vibbra.business.model.PlaceModel;
 @Component
 public class PlaceServiceImpl implements PlaceService {
 
+	@Autowired
 	private PlaceModel placeModel;
 
 	@Override
+	@Transactional
 	public void findByname() {
 		placeModel.findByName();
 	}
@@ -27,6 +31,12 @@ public class PlaceServiceImpl implements PlaceService {
 
 	public void setPlaceModel(PlaceModel placeModel) {
 		this.placeModel = placeModel;
+	}
+
+	@Override
+	@Transactional
+	public void retrieveAll() {
+		placeModel.retrieveAll();
 	}
 
 }

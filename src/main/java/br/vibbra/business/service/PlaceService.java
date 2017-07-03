@@ -13,4 +13,6 @@ public interface PlaceService {
 	void findByname();
 
 	PlaceModel getPlaceModel();
+
+	void retrieveAll();
 }

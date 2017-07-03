@@ -8,5 +8,5 @@ package br.vibbra.basic.enums;
  */
 public enum TypePlace {
 
-	LIBRARY, BAR, RESTAURANT, COWORKING, OTHER;
+	LIBRARY, BAR, RESTAURANT, COWORKING, COFFEE, OTHER;
 }

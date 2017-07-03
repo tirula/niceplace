@@ -25,7 +25,7 @@ public class PlaceDao extends AbstractDao<Place> {
 	@SuppressWarnings("unchecked")
 	public List<Place> findByName(String name) {
 		Criteria criteria = sessionFactory.getCurrentSession().createCriteria(getTypeClass());
-		criteria.add(Restrictions.like("%name%", name));
+		criteria.add(Restrictions.like("name", "%" + name + "%"));
 		return criteria.list();
 	}
 }

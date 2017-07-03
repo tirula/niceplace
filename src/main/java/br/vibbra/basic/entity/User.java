@@ -1,10 +1,14 @@
 package br.vibbra.basic.entity;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -33,6 +37,9 @@ public class User implements Serializable {
 	@Column(name = "enabled")
 	private boolean enabled;
 
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "pk.user")
+	private Set<UserPlace> userPlaces = new HashSet<>();
+
 	public String getUsername() {
 		return username;
 	}
@@ -55,6 +62,14 @@ public class User implements Serializable {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public Set<UserPlace> getUserPlaces() {
+		return userPlaces;
+	}
+
+	public void setUserPlaces(Set<UserPlace> userPlaces) {
+		this.userPlaces = userPlaces;
 	}
 
 	@Override

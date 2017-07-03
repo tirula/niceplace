@@ -14,14 +14,12 @@ $(document).ready(function() {
             }
         });
     });
-	
-	
+		
 	$("#btSearchPlace").click(function(e){
 		e.stopPropagation();
 		e.preventDefault(); 
-		console.log($("#formPlace").serialize())
         $.ajax({
-            type: 'POST',
+            type: 'GET',
             url: 'searchPlace',
             data: $("#formPlace").serialize(),
             success : function(data){
@@ -30,4 +28,21 @@ $(document).ready(function() {
             }
         });
     });
+	
+	$("#btNewPlace").click(function(e){
+		e.stopPropagation();
+		e.preventDefault(); 
+		var path = window.location.pathname.split('/')[1];
+		$('#formPlace').attr('method', "GET");
+	    $('#formPlace').attr('action', '/'+path+"/place/novo").submit();
+    });
+	
+	$("#btSavePlace").click(function(e){
+		e.stopPropagation();
+		e.preventDefault(); 
+		var path = window.location.pathname.split('/')[1];
+		$('#formPlaceNew').attr('method', "POST");
+	    $('#formPlaceNew').attr('action', '/'+path+"/place/novo").submit();
+    });
+	
 });
