@@ -12,6 +12,7 @@ import java.util.Date;
 
 import javax.persistence.AssociationOverride;
 import javax.persistence.AssociationOverrides;
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -29,6 +30,33 @@ public class UserPlace implements Serializable {
 
 	@EmbeddedId
 	private UserPlaceId pk = new UserPlaceId();
+
+	@Column(name = "created_date", nullable = false, length = 10)
+	private Date createdDate;
+
+	@Column(name = "foods")
+	private String foods;
+
+	@Column(name = "drinks")
+	private String drinks;
+
+	@Column(name = "waiter")
+	private float waiter;
+
+	@Column(name = "bill")
+	private float bill;
+
+	@Column(name = "confortable")
+	private float confortable;
+
+	@Column(name = "noisy")
+	private float noisy;
+
+	@Column(name = "total")
+	private float total;
+
+	@Column(name = "internet")
+	private String internet;
 
 	public UserPlaceId getPk() {
 		return pk;
@@ -56,85 +84,76 @@ public class UserPlace implements Serializable {
 		this.pk.setPlace(place);
 	}
 
-	@Transient
 	public Date getCreatedDate() {
-		return pk.getCreatedDate();
+		return createdDate;
 	}
 
 	public void setCreatedDate(Date createdDate) {
-		this.pk.setCreatedDate(createdDate);
+		this.createdDate = createdDate;
 	}
 
-	@Transient
 	public String getFoods() {
-		return pk.getFoods();
+		return foods;
 	}
 
 	public void setFoods(String foods) {
-		this.pk.setFoods(foods);
+		this.foods = foods;
 	}
 
-	@Transient
 	public String getDrinks() {
-		return pk.getDrinks();
+		return drinks;
 	}
 
 	public void setDrinks(String drinks) {
-		this.pk.setDrinks(drinks);
+		this.drinks = drinks;
 	}
 
-	@Transient
 	public float getWaiter() {
-		return pk.getWaiter();
+		return waiter;
 	}
 
 	public void setWaiter(float waiter) {
-		this.pk.setWaiter(waiter);
+		this.waiter = waiter;
 	}
 
-	@Transient
 	public float getBill() {
-		return pk.getBill();
+		return bill;
 	}
 
 	public void setBill(float bill) {
-		this.pk.setBill(bill);
+		this.bill = bill;
 	}
 
-	@Transient
 	public float getConfortable() {
-		return pk.getConfortable();
+		return confortable;
 	}
 
 	public void setConfortable(float confortable) {
-		this.pk.setConfortable(confortable);
+		this.confortable = confortable;
 	}
 
-	@Transient
 	public float getNoisy() {
-		return pk.getNoisy();
+		return noisy;
 	}
 
 	public void setNoisy(float noisy) {
-		this.pk.setNoisy(noisy);
+		this.noisy = noisy;
 	}
 
-	@Transient
 	public float getTotal() {
-		return pk.getTotal();
+		return total;
 	}
 
 	public void setTotal(float total) {
-		this.pk.setTotal(total);
+		this.total = total;
 	}
 
-	@Transient
 	public String getInternet() {
-		return pk.getInternet();
+		return internet;
 	}
 
 	public void setInternet(String internet) {
-		this.pk.setInternet(internet);
+		this.internet = internet;
 	}
 
 	@Override

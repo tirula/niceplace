@@ -184,6 +184,7 @@ public class UserPlaceBusiness implements UserPlaceModel {
 		return internet;
 	}
 
+	@Override
 	public void setInternet(String internet) {
 		this.internet = internet;
 	}

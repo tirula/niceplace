@@ -25,7 +25,7 @@
 		    	<input type="text" id="foodsRating" name="foods" >
 		    </div>
 		    <div class="form-group row">
-		    	<label>Comida</label>
+		    	<label>Bebidas</label>
 		    	<input type="text" id="drinksRating" name="drinks" >
 		    </div>
 		    <div class="form-group row">

@@ -71,7 +71,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="${context}/places">Cadastre-se</a>
+        <a class="nav-link" href="/niceplace/cadastrar">Cadastre-se</a>
       </li>
     </ul>
   </div>

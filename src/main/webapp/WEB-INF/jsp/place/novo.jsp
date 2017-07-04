@@ -69,6 +69,18 @@
 					</div>
 				</div>
 				<div class="form-group row">
+		        <label class="col-4">Tipo de Estabelecimento</label>
+		        <div class="col-6 selectContainer">
+		            <select class="form-control" name="placeType">
+		            	<option value="LIBRARY">LIBRARY</option>
+		            	<option value="BAR">RESTAURANT</option>
+		            	<option value="COWORKING">COWORKING</option>
+		            	<option value="COFFEE">COFFEE</option>
+		            	<option value="OTHER">OTHER</option>
+		            </select>
+		        </div>
+		    </div>
+				<div class="form-group row">
 					<button id="btSavePlace" type="button" class="btn btn-success">Salvar</button>
 				</div>
 			</form>

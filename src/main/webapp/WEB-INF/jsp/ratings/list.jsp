@@ -7,7 +7,7 @@
 			    <tr>
 					<th>Estabelecimento</th>
 					<th>Usuario</th>					
-					<th>Nota</th>
+					<th>Avaliacao no geral</th>
 			    </tr>
 		  </thead>
 		<tbody>
@@ -15,7 +15,7 @@
 			<tr>
 				<td>${userPlace.place.name}</td>
 				<td>${userPlace.user.username}</td>
-				<td>${userPlace.pk.score}</td>
+				<td>${userPlace.total}</td>
 			</tr>
 			</c:forEach>
 		 </tbody>

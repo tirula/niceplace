@@ -40,12 +40,14 @@ $(document).ready(function() {
 	$("#btSavePlace").click(function(e){
 		e.stopPropagation();
 		e.preventDefault(); 
+		var path = window.location.pathname.split('/')[1];
+		path= '/' + path + '/place/save';
         $.ajax({
-            type: 'POST',
-            url: '/place/novo',
+            type: 'GET',
+            url: path,
             data: $("#formPlaceNew").serialize(),
             success : function(data){
-                
+            	window.location.replace("/niceplace/places");
             }
         });
     });
@@ -66,7 +68,7 @@ $(document).ready(function() {
             url: path,
             data: $("#formRatingNew").serialize(),
             success : function(data){
-        		window.location.replace("/niceplce/ratings");
+        		window.location.replace("/" + path + "/ratings");
             }
         });
     });

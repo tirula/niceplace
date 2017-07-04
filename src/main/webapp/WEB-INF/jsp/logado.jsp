@@ -13,18 +13,20 @@
       <li class="nav-item">
         <a class="nav-link" href="${context}/ratings">Avaliacoes</a>
       </li>
+      <sec:authorize access="hasRole('ROLE_USER')">
+	      <c:url value="/logout" var="logoutUrl" />
+		  <form action="${logoutUrl}" method="post" id="logoutForm"><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /></form>
+	      <c:if test="${pageContext.request.userPrincipal.name != null}">
+		      <li class="nav-item">
+		        <a>${pageContext.request.userPrincipal.name} | <a href=href="${context}/logout"> Logout</a></a>
+		      </li>
+	      </c:if>
+	   </sec:authorize>
     </ul>
   </div>
 </nav>
-<sec:authorize access="hasRole('anonymousUser')">
-anonymousUser
-</sec:authorize>
-<sec:authorize access="hasRole('ROLE_USER')">
-	<c:url value="/logout" var="logoutUrl" />
-	<form action="${logoutUrl}" method="post" id="logoutForm"><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /></form>
-	<script> function formSubmit() { document.getElementById("logoutForm").submit();}</script>
-	<c:if test="${pageContext.request.userPrincipal.name != null}"><h2>User : ${pageContext.request.userPrincipal.name} | <a href="javascript:formSubmit()"> Logout</a></h2></c:if>
-</sec:authorize>
 </div>
+
+
 
 

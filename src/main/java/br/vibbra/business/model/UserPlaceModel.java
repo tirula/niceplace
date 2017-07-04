@@ -36,4 +36,6 @@ public interface UserPlaceModel {
 
 	void setTotal(float total);
 
+	void setInternet(String internet);
+
 }

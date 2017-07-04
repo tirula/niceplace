@@ -15,4 +15,8 @@ public interface PlaceService {
 	PlaceModel getPlaceModel();
 
 	void retrieveAll();
+
+	void save();
+
+	void setPlaceModel(PlaceModel placeModel);
 }

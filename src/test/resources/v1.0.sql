@@ -1,3 +1,5 @@
+
+
 CREATE  TABLE users (
   username VARCHAR(45) NOT NULL ,
   password VARCHAR(45) NOT NULL ,
@@ -21,7 +23,7 @@ INSERT INTO user_roles (username, role) VALUES ('brunno', 'ROLE_ADMIN');
 INSERT INTO user_roles (username, role) VALUES ('alex', 'ROLE_USER');
 
 CREATE TABLE place (
-	place_id INT NOT NULL,
+	place_id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(50) NULL,
 	phone VARCHAR(20) NULL,
 	type_place VARCHAR(30),

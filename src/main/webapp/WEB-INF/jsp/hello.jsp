@@ -1,24 +1,34 @@
-<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<html>
-	<jsp:include page="import.jsp" />
-	<body>			
-		<div class="container">
-			<div class="content">
-				<form id="formPlace">
-					<div class="form-group">
-						<div class="col-4">
-							<input class="form-control" type="text" id="searchPlace" name="name">
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-2">
-							<button id="btSearchPlace" type="submit" class="btn btn-primary">Buscar Estabelecimento</button>
-						</div>
-					</div>
-				</form><br>		
-				<jsp:include page="place/list.jsp" />
-			</div>
-		</div>
-	</body>
-</html>
+<head>
+	<link rel="stylesheet" href="css/niceplace.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/star-rating.css" media="all" type="text/css"/>
+	
+	<script src="js/jquery-3.2.1.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/niceplace.js"></script>
+	<script src="js/star-rating.js" type="text/javascript"></script>
+	
+	
+<style>
+#header {
+      height: 200px;
+      position: relative;
+      z-index: 0;
+    }
+
+#content {
+  border: 1px solid #000;
+  margin-top: -100px;
+  position: relative;
+  z-index: 1;
+}
+
+#footer {
+  margin-top: -100px;
+  height: 400px;
+  position: relative;
+  z-index: 0;
+}
+</style>
+</head>
+<jsp:include page="logado.jsp" />

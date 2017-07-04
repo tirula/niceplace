@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import br.vibbra.business.model.PlaceModel;
 import br.vibbra.business.service.PlaceService;
+import br.vibbra.web.mapper.Mapper;
 import br.vibbra.web.request.PlaceRequest;
 
 /**
@@ -17,6 +19,9 @@ import br.vibbra.web.request.PlaceRequest;
 public class PlaceController {
 
 	private static Logger logger = Logger.getLogger(PlaceController.class);
+
+	@Autowired
+	private Mapper<PlaceModel, PlaceRequest> placeRequestMapper;
 
 	@Autowired
 	private PlaceService placeService;
@@ -41,8 +46,9 @@ public class PlaceController {
 
 	@RequestMapping(value = "/place/save", method = RequestMethod.GET)
 	public ModelAndView novo(PlaceRequest placeRequest) {
-		// mapper
-		// salvar
+		PlaceModel placeModel = placeRequestMapper.map(placeRequest);
+		placeService.setPlaceModel(placeModel);
+		placeService.save();
 		ModelAndView model = new ModelAndView("place/home");
 		placeService.retrieveAll();
 		model.addObject("places", placeService.getPlaceModel().getPlaces());

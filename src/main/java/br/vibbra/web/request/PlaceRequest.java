@@ -2,6 +2,8 @@ package br.vibbra.web.request;
 
 import java.io.Serializable;
 
+import br.vibbra.basic.enums.TypePlace;
+
 /**
  * 
  * @author Brunno de Almeida Santos
@@ -24,6 +26,8 @@ public class PlaceRequest implements Serializable {
 	private String phone;
 
 	private String country;
+
+	private TypePlace typePlace;
 
 	public PlaceRequest() {
 	}
@@ -66,6 +70,14 @@ public class PlaceRequest implements Serializable {
 
 	public void setCountry(String country) {
 		this.country = country;
+	}
+
+	public TypePlace getTypePlace() {
+		return typePlace;
+	}
+
+	public void setTypePlace(TypePlace typePlace) {
+		this.typePlace = typePlace;
 	}
 
 	@Override

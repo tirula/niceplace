@@ -31,7 +31,6 @@ public class RatingMapper implements Mapper<UserPlaceModel, RatingRequest> {
 		model.setPlaceID(request.getPlaceID());
 		model.setTotal(request.getTotal());
 		model.setWaiter(request.getWaiter());
-		// internet
 		return model;
 	}
 

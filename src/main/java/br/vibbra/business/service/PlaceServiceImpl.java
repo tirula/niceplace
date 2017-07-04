@@ -25,18 +25,24 @@ public class PlaceServiceImpl implements PlaceService {
 	}
 
 	@Override
-	public PlaceModel getPlaceModel() {
-		return placeModel;
-	}
-
-	public void setPlaceModel(PlaceModel placeModel) {
-		this.placeModel = placeModel;
-	}
-
-	@Override
 	@Transactional
 	public void retrieveAll() {
 		placeModel.retrieveAll();
 	}
 
+	@Override
+	@Transactional
+	public void save() {
+		placeModel.save();
+	}
+
+	@Override
+	public PlaceModel getPlaceModel() {
+		return placeModel;
+	}
+
+	@Override
+	public void setPlaceModel(PlaceModel placeModel) {
+		this.placeModel = placeModel;
+	}
 }
