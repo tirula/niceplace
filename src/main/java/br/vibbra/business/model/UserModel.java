@@ -3,7 +3,6 @@ package br.vibbra.business.model;
 import java.util.List;
 
 import br.vibbra.basic.entity.User;
-import br.vibbra.business.exception.SignInException;
 
 /**
  * 
@@ -23,8 +22,6 @@ public interface UserModel {
 	void setPassword(String password);
 
 	void setUsername(String username);
-
-	UserModel login() throws SignInException;
 
 	void setId(Long id);
 

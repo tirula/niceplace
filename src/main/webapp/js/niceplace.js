@@ -40,9 +40,35 @@ $(document).ready(function() {
 	$("#btSavePlace").click(function(e){
 		e.stopPropagation();
 		e.preventDefault(); 
+        $.ajax({
+            type: 'POST',
+            url: '/place/novo',
+            data: $("#formPlaceNew").serialize(),
+            success : function(data){
+                
+            }
+        });
+    });
+	
+	$("#btNewRating").click(function(e){
+		e.stopPropagation();
+		e.preventDefault(); 
+		window.location.replace("/niceplace/rate");
+    });
+	
+	$("#btRate").click(function(e){
+		e.stopPropagation();
+		e.preventDefault(); 
 		var path = window.location.pathname.split('/')[1];
-		$('#formPlaceNew').attr('method', "POST");
-	    $('#formPlaceNew').attr('action', '/'+path+"/place/novo").submit();
+		path= '/' + path + '/rate/new';
+        $.ajax({
+            type: 'GET',
+            url: path,
+            data: $("#formRatingNew").serialize(),
+            success : function(data){
+        		window.location.replace("/niceplce/ratings");
+            }
+        });
     });
 	
 });

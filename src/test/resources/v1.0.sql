@@ -42,10 +42,17 @@ CREATE TABLE user_place (
   username VARCHAR(45) NOT NULL ,
   place_id INT(10) UNSIGNED NOT NULL,
   created_date DATE NOT NULL,	
-  score INT not null,
+  foods varchar(100) null,
+  drinks varchar(100) null, 
+  waiter DECIMAL(5,2) null,
+  bill DECIMAL(5,2) null, 
+  confortable DECIMAL(5,2) null, 
+  noisy DECIMAL(5,2) null,
+  total DECIMAL(5,2) null,
+  internet varchar(100) null,
   PRIMARY KEY (username,place_id)
 );
 
 GRANT ALL PRIVILEGES ON niceplace.user_place TO 'root'@'%' WITH GRANT OPTION;
 
-insert into user_place(username, place_id, created_date, score) values('brunno',200, now(),5);
+

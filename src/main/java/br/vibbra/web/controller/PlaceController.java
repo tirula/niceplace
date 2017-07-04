@@ -39,7 +39,7 @@ public class PlaceController {
 		return model;
 	}
 
-	@RequestMapping(value = "/place/novo", method = RequestMethod.POST)
+	@RequestMapping(value = "/place/save", method = RequestMethod.GET)
 	public ModelAndView novo(PlaceRequest placeRequest) {
 		// mapper
 		// salvar

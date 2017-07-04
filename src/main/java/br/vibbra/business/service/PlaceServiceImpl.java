@@ -1,7 +1,7 @@
 package br.vibbra.business.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import br.vibbra.business.model.PlaceModel;
@@ -12,7 +12,7 @@ import br.vibbra.business.model.PlaceModel;
  *
  * 
  */
-@Component
+@Service
 public class PlaceServiceImpl implements PlaceService {
 
 	@Autowired

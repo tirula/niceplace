@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 
 import br.vibbra.basic.dao.UserDao;
 import br.vibbra.basic.entity.User;
-import br.vibbra.business.exception.SignInException;
 
 /**
  * 
@@ -48,14 +47,6 @@ public class UserBusiness implements UserModel {
 	public UserModel delete() {
 		User user = userDao.getById(getId());
 		userDao.delete(user);
-		return this;
-	}
-
-	@Override
-	public UserModel login() throws SignInException {
-		if (!userDao.login(geUsername(), getPassword())) {
-			throw new SignInException("Nao foi possivel logar no sistema.");
-		}
 		return this;
 	}
 

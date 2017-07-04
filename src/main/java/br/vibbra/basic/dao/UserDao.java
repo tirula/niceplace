@@ -14,10 +14,9 @@ public class UserDao extends AbstractDao<User> {
 		return User.class;
 	}
 
-	public boolean login(String email, String password) {
+	public User findByUsername(String username) {
 		Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(getTypeClass());
-		criteria.add(Restrictions.eq("email", email));
-		criteria.add(Restrictions.eq("password", password));
-		return false;
+		criteria.add(Restrictions.eq("username", username));
+		return (User) criteria.uniqueResult();
 	}
 }

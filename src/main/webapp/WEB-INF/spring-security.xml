@@ -16,8 +16,11 @@
         <intercept-url pattern="/place/novo" access="isAuthenticated()" />
        	<intercept-url pattern="/places" access="permitAll()" />   
         <intercept-url pattern="/searchPlace" access="permitAll()" />
+        <intercept-url pattern="/ratings" access="permitAll()" />
+        <intercept-url pattern="/rate" access="isAuthenticated()" />
+        <intercept-url pattern="/rate/new" access="isAuthenticated()" />
         
-		<access-denied-handler error-page="/403" />
+        
 
 		<form-login
 		    login-page="/login"
@@ -26,6 +29,7 @@
 			username-parameter="username"
 			password-parameter="password" />
 		<logout logout-success-url="/login?logout"  />
+		
 		<!-- enable csrf protection -->
 		<csrf/>
 	</http>

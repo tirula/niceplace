@@ -8,6 +8,7 @@ package br.vibbra.basic.entity;
 
 import java.beans.Transient;
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.AssociationOverride;
 import javax.persistence.AssociationOverrides;
@@ -18,8 +19,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_place")
-@AssociationOverrides({ @AssociationOverride(name = "pk.user", joinColumns = @JoinColumn(name = "username")),
-		@AssociationOverride(name = "pk.place", joinColumns = @JoinColumn(name = "CATEGORY_ID")) })
+@AssociationOverrides({ @AssociationOverride(name = "pk.user", joinColumns = @JoinColumn(name = "username")), @AssociationOverride(name = "pk.place", joinColumns = @JoinColumn(name = "place_id")) })
 public class UserPlace implements Serializable {
 
 	/**
@@ -54,6 +54,87 @@ public class UserPlace implements Serializable {
 
 	public void setPlace(Place place) {
 		this.pk.setPlace(place);
+	}
+
+	@Transient
+	public Date getCreatedDate() {
+		return pk.getCreatedDate();
+	}
+
+	public void setCreatedDate(Date createdDate) {
+		this.pk.setCreatedDate(createdDate);
+	}
+
+	@Transient
+	public String getFoods() {
+		return pk.getFoods();
+	}
+
+	public void setFoods(String foods) {
+		this.pk.setFoods(foods);
+	}
+
+	@Transient
+	public String getDrinks() {
+		return pk.getDrinks();
+	}
+
+	public void setDrinks(String drinks) {
+		this.pk.setDrinks(drinks);
+	}
+
+	@Transient
+	public float getWaiter() {
+		return pk.getWaiter();
+	}
+
+	public void setWaiter(float waiter) {
+		this.pk.setWaiter(waiter);
+	}
+
+	@Transient
+	public float getBill() {
+		return pk.getBill();
+	}
+
+	public void setBill(float bill) {
+		this.pk.setBill(bill);
+	}
+
+	@Transient
+	public float getConfortable() {
+		return pk.getConfortable();
+	}
+
+	public void setConfortable(float confortable) {
+		this.pk.setConfortable(confortable);
+	}
+
+	@Transient
+	public float getNoisy() {
+		return pk.getNoisy();
+	}
+
+	public void setNoisy(float noisy) {
+		this.pk.setNoisy(noisy);
+	}
+
+	@Transient
+	public float getTotal() {
+		return pk.getTotal();
+	}
+
+	public void setTotal(float total) {
+		this.pk.setTotal(total);
+	}
+
+	@Transient
+	public String getInternet() {
+		return pk.getInternet();
+	}
+
+	public void setInternet(String internet) {
+		this.pk.setInternet(internet);
 	}
 
 	@Override

@@ -7,17 +7,17 @@
   <nav class="navbar navbar-toggleable-md navbar-light bg-faded">s
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="/searchPlace">Buscar</a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="${context}/places">Estabelecimentos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="${context}/ratings">Avaliacoes</a>
       </li>
     </ul>
   </div>
 </nav>
-<sec:authorize access="permitAll()">
-aa
+<sec:authorize access="hasRole('anonymousUser')">
+anonymousUser
 </sec:authorize>
 <sec:authorize access="hasRole('ROLE_USER')">
 	<c:url value="/logout" var="logoutUrl" />

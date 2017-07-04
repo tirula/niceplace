@@ -37,30 +37,29 @@
 
 	<body>
 		<div class="container">
-		
 			<form  id="formPlaceNew"> 	
 				<div class="form-group row">
 					<label>Nome do estabelecimento</label>
 					<div class="col-10">
-						<input class="form-control" type="text" Name="name" id="name" maxlength="50" required>
+						<input class="form-control" type="text" Name="name" id="namePlaceNew" maxlength="50" required>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label>Telefone</label>
 					<div class="col-10">
-						<input class="form-control" type="text" name="phone" id="phonePlace" maxlength="15" required>
+						<input class="form-control" type="text" name="phone" id="phonePlaceNew" maxlength="15" required>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label>Endereco</label>
 					<div class="col-10">
-						<input class="form-control" type="text" name="address" id="addressPlace" maxlength="50" required>
+						<input class="form-control" type="text" name="address" id="addressPlaceNew" maxlength="50" required>
 					</div>
 				</div>
 				<div class="form-group row">
 					<label>Cidade</label>
 					<div class="col-10">
-						<input class="form-control" type="text" name="city" id="cityPlace" maxlength="20" required>
+						<input class="form-control" type="text" name="city" id="cityPlaceNew" maxlength="20" required>
 					</div>
 				</div>
 				<div class="form-group row">
