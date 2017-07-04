@@ -31,6 +31,12 @@ public class UserPlaceServiceImpl implements UserPlaceService {
 	}
 
 	@Override
+	@Transactional
+	public void retrieveAllByUser() {
+		userPlaceModel.retrieveAllByUser();
+	}
+
+	@Override
 	public UserPlaceModel getUserPlaceModel() {
 		return userPlaceModel;
 	}
@@ -39,4 +45,5 @@ public class UserPlaceServiceImpl implements UserPlaceService {
 	public void setUserPlaceModel(UserPlaceModel userPlaceModel) {
 		this.userPlaceModel = userPlaceModel;
 	}
+
 }

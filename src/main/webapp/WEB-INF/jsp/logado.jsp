@@ -13,6 +13,9 @@
       <li class="nav-item">
         <a class="nav-link" href="${context}/ratings">Avaliacoes</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="${context}/myratings">Minhas Avaliacoes</a>
+      </li>        
       <sec:authorize access="hasRole('ROLE_USER')">
 	      <c:url value="/logout" var="logoutUrl" />
 		  <form action="${logoutUrl}" method="post" id="logoutForm"><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /></form>

@@ -68,7 +68,7 @@ $(document).ready(function() {
             url: path,
             data: $("#formRatingNew").serialize(),
             success : function(data){
-        		window.location.replace("/" + path + "/ratings");
+        		window.location.replace("/niceplace/ratings");
             }
         });
     });

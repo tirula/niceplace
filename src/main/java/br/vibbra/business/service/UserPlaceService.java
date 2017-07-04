@@ -18,4 +18,6 @@ public interface UserPlaceService {
 
 	void rating();
 
+	void retrieveAllByUser();
+
 }

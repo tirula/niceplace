@@ -1,6 +1,8 @@
 package br.vibbra.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,6 +40,15 @@ public class RatingController {
 		return model;
 	}
 
+	@RequestMapping(value = "/myratings", method = RequestMethod.GET)
+	public ModelAndView myratings() {
+		ModelAndView model = new ModelAndView("ratings/home");
+		userPlaceService.getUserPlaceModel().setUsername(getPrincipal());
+		userPlaceService.retrieveAllByUser();
+		model.addObject("userPlaces", userPlaceService.getUserPlaceModel().getUserPlaces());
+		return model;
+	}
+
 	@RequestMapping(value = "/rate", method = RequestMethod.GET)
 	public ModelAndView rate() {
 		ModelAndView model = new ModelAndView("ratings/rate");
@@ -55,6 +66,18 @@ public class RatingController {
 		placeService.retrieveAll();
 		model.addObject("places", placeService.getPlaceModel().getPlaces());
 		return model;
+	}
+
+	private String getPrincipal() {
+		String userName = null;
+		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+		if (principal instanceof UserDetails) {
+			userName = ((UserDetails) principal).getUsername();
+		} else {
+			userName = principal.toString();
+		}
+		return userName;
 	}
 
 }

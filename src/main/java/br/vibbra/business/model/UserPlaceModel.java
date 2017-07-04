@@ -38,4 +38,6 @@ public interface UserPlaceModel {
 
 	void setInternet(String internet);
 
+	void retrieveAllByUser();
+
 }

@@ -83,6 +83,11 @@ public class UserPlaceBusiness implements UserPlaceModel {
 	}
 
 	@Override
+	public void retrieveAllByUser() {
+		userPlaces = userPlaceDao.findAllByUser(getUsername());
+	}
+
+	@Override
 	public List<UserPlace> getUserPlaces() {
 		return userPlaces;
 	}
